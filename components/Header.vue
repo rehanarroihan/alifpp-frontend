@@ -35,49 +35,23 @@
 
         <nav class="nav-menu d-none d-lg-block">
           <ul>
-            <li v-for="(item, index) in navbarMenus" :key="index">
-              <a href="index.html">
-                {{ item.title }}
-              </a>
-            </li>
-            <li class="drop-down"><a href="">Drop Down</a>
-              <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="drop-down"><a href="#">Deep Drop Down</a>
-                  <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
-            </li>
-            <!-- <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#team">Team</a></li>
-            <li class="drop-down"><a href="">Drop Down</a>
-              <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="drop-down"><a href="#">Deep Drop Down</a>
-                  <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contact</a></li> -->
+            <template v-for="(item, index) in navbarMenus">
+              <li :key="index" v-if="item.children != null" class="drop-down">
+                <a href="index.html">
+                  {{ item.title }}
+                </a>
+                <ul>
+                  <li v-for="(children, index) in item.children" :key="index">
+                    <a href="#">{{ children.title }}</a>
+                  </li>
+                </ul>
+              </li>
+              <li :key="index" v-if="item.children == null">
+                <a href="index.html">
+                  {{ item.title }}
+                </a>
+              </li>
+            </template>
 
           </ul>
         </nav><!-- .nav-menu -->
