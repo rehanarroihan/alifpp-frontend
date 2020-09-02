@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Header />
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
       <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1>Welcome to <span>CV. Alif Putra Perdana</span>
         </h1>
-        <h2>Kami adalah perusahaan Penyedia Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Terbaik Di Indonesia Timur Dan Bisa Bermanfaat Bagi Kehidupan</h2>
+        <h2>
+          Kami adalah perusahaan Penyedia Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Terbaik Di Indonesia Timur Dan Bisa Bermanfaat Bagi Kehidupan</h2>
         <div class="d-flex">
           <a href="#about" class="btn-get-started scrollto">Lihat Produk Kami</a>
         </div>
@@ -575,14 +575,12 @@
       </section><!-- End Contact Section -->
 
     </main><!-- End #main -->
-    <Footer />
-
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
+/* eslint-disable */
+/* eslint-disable no-alert */
 
 export default {
   name: 'Landing',
@@ -590,10 +588,6 @@ export default {
     return {
       title: 'Home - CV. Alif Putra Perdana'
     }
-  },
-  components: {
-    Header,
-    Footer
   }
 }
 </script>

@@ -8,11 +8,20 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended'
+    'airbnb-base'
   ],
   plugins: [
+    'vue'
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'import/extensions': ['error', 'always', {
+      js: 'never',
+      vue: 'always',
+    }],
+    'linebreak-style': 0,
+    'global-require': 0,
+    'no-undef': 0,
+  }
 }
