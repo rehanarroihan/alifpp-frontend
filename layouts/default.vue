@@ -23,7 +23,10 @@ export default {
     Footer,
   },
   async mounted() {
-    Promise.all([ this.getAllMenus() ]).then((values) => {
+    Promise.all([
+      this.getAllMenus(),
+      this.parseProductCategory()
+    ]).then((values) => {
       this.toggleGlobalLoading();
     });
   },
@@ -31,6 +34,7 @@ export default {
     ...mapActions({
       getAllMenus: 'global/getNavbarMenus',
       toggleGlobalLoading: 'global/toggleGlobalLoading',
+      parseProductCategory: 'global/getAndParseProductCategory',
     }),
   },
   computed: {

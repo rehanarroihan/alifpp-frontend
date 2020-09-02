@@ -1,6 +1,9 @@
 export const state = () => ({
+  headTitle: 'CV. Alif Putra Perdana',
   globalLoading: true,
   navbarMenus: [],
+  allProductCategory: [],
+  twoLevelProductCategory: []
 });
 
 export const mutations = {
@@ -14,12 +17,18 @@ export const mutations = {
       state.globalLoading = !state.globalLoading;
     }
   },
+  setAllProductCategory(state, payload) {
+    state.allProductCategory = payload;
+  },
+  setTwoLevelProductCategory(state, payload) {
+    state.twoLevelProductCategory = payload;
+  }
 };
 
 export const actions = {
   getNavbarMenus(context) {
     return new Promise((resolve, reject) => {
-      this.$axios.$get('https://cms.alifpp.com/wp-json/wp-api-menus/v2/menus/5')
+      this.$axios.$get(`${process.env.API_BASE_URL}wp-api-menus/v2/menus/5`)
         .then((data) => {
           context.commit('setNavbarMenus', data.items);
           resolve(data);
@@ -32,4 +41,40 @@ export const actions = {
   toggleGlobalLoading(context, payload) {
     context.commit('setGlobalLoading', payload);
   },
+  getAndParseProductCategory(context, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.$get(`${process.env.API_BASE_URL}wc/v3/products/categories?per_page=100`, {
+        auth: {
+          username: process.env.WP_CONSUMER_KEY,
+          password: process.env.WP_CONSUMER_SECRET
+        }
+      }).then((data) => {
+        context.commit('setAllProductCategory', data);
+        // NOTE : grouping categories by parents
+        let catParents = [];
+        data.map((cat) => {
+          // NOTE : Gathering parents (cat with parent === 0)
+          if (cat.parent === 0) {
+            catParents.push(cat);
+          }
+        });
+        // NOTE : inserting children to their parents
+        data.map((cats) => {
+          if (cats.parent !== 0) {
+            let parent = catParents.find(element => element.id == cats.parent);
+            if (typeof parent != 'undefined') {
+              if (typeof parent.children == 'undefined') {
+                Object.assign(parent, { children: [] });
+              }
+              parent.children.push(cats);
+            }
+          }
+        });
+        context.commit('setTwoLevelProductCategory', catParents);
+        resolve(data);
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
 };

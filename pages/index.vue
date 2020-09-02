@@ -579,15 +579,19 @@
 </template>
 
 <script>
-/* eslint-disable */
-/* eslint-disable no-alert */
+import { mapState } from 'vuex';
 
 export default {
   name: 'Landing',
   head () {
     return {
-      title: 'Home - CV. Alif Putra Perdana'
+      title: `Home - ${this.headTitle}`
     }
+  },
+  computed: {
+    ...mapState({
+      headTitle: (state) => state.global.headTitle
+    }),
   }
 }
 </script>

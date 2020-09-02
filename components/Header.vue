@@ -13,7 +13,7 @@
           <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
           <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
           <a href="#" class="skype"><i class="icofont-skype"></i></a>
-          <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+          <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
         </div>
       </div>
     </div>
@@ -37,22 +37,25 @@
           <ul>
             <template v-for="(item, index) in navbarMenus">
               <li :key="index" v-if="item.children != null" class="drop-down">
-                <a href="index.html">
+                <nuxt-link :to="getRedirectLink(item.title)">
                   {{ item.title }}
-                </a>
+                </nuxt-link>
                 <ul>
                   <li v-for="(children, index) in item.children" :key="index">
-                    <a href="#">{{ children.title }}</a>
+                    <nuxt-link
+                      :to="'/product-category/' + children.object_id + '/' + goSlug(children.title)"
+                    >
+                      {{ children.title }}
+                    </nuxt-link>
                   </li>
                 </ul>
               </li>
               <li :key="index" v-if="item.children == null">
-                <a href="index.html">
+                <nuxt-link :to="getRedirectLink(item.title)">
                   {{ item.title }}
-                </a>
+                </nuxt-link>
               </li>
             </template>
-
           </ul>
         </nav><!-- .nav-menu -->
 
@@ -71,6 +74,40 @@ export default {
       navbarMenus: (state) => state.global.navbarMenus,
     }),
   },
+  methods: {
+    getRedirectLink(title) {
+      let link = '';
+      switch (title) {
+        case 'Home':
+          link = '/'
+          break;
+        case 'Product':
+          link = '/product-category'
+          break;
+        case 'Brand':
+          link = '/brand'
+          break;
+        case 'News & Events':
+          link = '/news-event'
+          break;   
+        case 'About Us':
+          link = '/about'
+          break;     
+      }
+      return link;
+    },
+    goSlug(str) {
+      //replace all special characters | symbols with a space
+      str = str.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+      
+      // trim spaces at start and end of string
+      str = str.replace(/^\s+|\s+$/gm,'');
+      
+      // replace space with dash/hyphen
+      str = str.replace(/\s+/g, '-');	
+      return str;
+    }
+  }
 };
 </script>
 

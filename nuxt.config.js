@@ -88,4 +88,10 @@ export default {
   */
   build: {
   },
+
+  env: {
+    API_BASE_URL: 'https://cms.alifpp.com/wp-json/',
+    WP_CONSUMER_KEY: 'ck_94936cb0dcf843aada6366baec779d5ec52812b2',
+    WP_CONSUMER_SECRET: 'cs_2e40f9da28329e403516b2ab449e0012e250ce97'
+  }
 }
