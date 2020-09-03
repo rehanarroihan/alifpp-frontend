@@ -3,7 +3,8 @@ export const state = () => ({
   globalLoading: true,
   navbarMenus: [],
   allProductCategory: [],
-  twoLevelProductCategory: []
+  twoLevelProductCategory: [],
+  categoriesWithProducts: []
 });
 
 export const mutations = {
@@ -22,6 +23,9 @@ export const mutations = {
   },
   setTwoLevelProductCategory(state, payload) {
     state.twoLevelProductCategory = payload;
+  },
+  pushCategoriesWithProducts(state, payload) {
+    state.categoriesWithProducts.push(payload);
   }
 };
 
@@ -55,7 +59,8 @@ export const actions = {
         data.map((cat) => {
           // NOTE : Gathering parents (cat with parent === 0)
           if (cat.parent === 0) {
-            catParents.push(cat);
+            if (cat.name !== 'Lain-lain' && cat.name !== 'Uncategorized')
+              catParents.push(cat);
           }
         });
         // NOTE : inserting children to their parents
@@ -76,5 +81,28 @@ export const actions = {
         reject(err);
       });
     });
+  },
+  getProductOfCategory(context, payload) {
+    return new Promise((resolve, reject) => {
+      let cats = context.state.categoriesWithProducts.find(itm => itm.id === payload.id);
+      if (typeof cats != 'undefined') {
+        // Just return the category data with its product
+        resolve(cats);
+      } else {
+        // Push the the cat data and get products from server
+        this.$axios.$get(`${process.env.API_BASE_URL}wc/v3/products?category=${payload.id}`, {
+          auth: {
+            username: process.env.WP_CONSUMER_KEY,
+            password: process.env.WP_CONSUMER_SECRET
+          }
+        }).then((data) => {
+          let categoryWithProducts = JSON.parse(JSON.stringify(payload));
+          Object.assign(categoryWithProducts, { products: data });
+
+          context.commit('pushCategoriesWithProducts', categoryWithProducts);
+          resolve(categoryWithProducts);
+        });
+      }
+    })
   }
 };

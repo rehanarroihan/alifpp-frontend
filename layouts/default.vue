@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="preloader" v-if="globalLoading"></div>
+    <MainLoading v-if="globalLoading" />
     <section v-else>
       <Header />
       <Nuxt />
@@ -13,12 +13,14 @@
 /* eslint-disable */
 import { mapActions, mapState } from 'vuex';
 
+import MainLoading from '@/components/MainLoading.vue';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'Layout',
   components: {
+    MainLoading,
     Header,
     Footer,
   },

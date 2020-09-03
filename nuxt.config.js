@@ -46,6 +46,11 @@ export default {
       { src: 'assets/js/main.js' },
     ],
   },
+
+  loading: {
+    color: '#106eea',
+  },
+
   /*
   ** Global CSS
   */
