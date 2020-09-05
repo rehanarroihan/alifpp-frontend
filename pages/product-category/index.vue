@@ -58,11 +58,12 @@
             <!-- Product list -->
             <div
               v-if="!isProductLoading && selectedCategory.products.length > 0"
-              class="row team"
+              class="row product"
             >
               <template v-for="(prdItem, prdIndex) in selectedCategory.products">
                 <ProductCard
                   :key="'product' + prdIndex"
+                  :productId="prdItem.id"
                   :productImage="prdItem.images[0].src"
                   :productName="prdItem.name"
                 />
@@ -135,5 +136,9 @@ export default {
 }
 .text-purple {
   color: #106eea;
+}
+
+.product {
+  padding: 60px 0;
 }
 </style>

@@ -23,13 +23,15 @@
       <div class="container d-flex align-items-center">
 
         <img
-          src="assets/img/alifpplogo.png"
+          src="https://alifpp.com/assets/img/alifpplogo.png"
           class="logo mr-3"
           style="height: 50px;
           padding: 0; margin: 0; border-radius: 50%;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);"
         />
-        <h1 class="logo mr-auto"><a href="index.html">Alifpp<span>.</span></a></h1>
+        <h1 class="logo mr-auto">
+          <nuxt-link to="/">Alifpp<span>.</span></nuxt-link>
+        </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 

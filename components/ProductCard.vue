@@ -1,14 +1,16 @@
 <template>
   <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-    <div class="member">
-      <div class="member-img">
-        <img :src="productImage" class="img-fluid" alt="">
+    <nuxt-link :to="'/product/' + productId">
+      <div class="product">
+        <div class="product-img">
+          <img :src="productImage" class="img-fluid" alt="">
+        </div>
+        <div class="product-info">
+          <h4>{{ productName }}</h4>
+          <span>Chief Executive Officer</span>
+        </div>
       </div>
-      <div class="member-info">
-        <h4>{{ productName }}</h4>
-        <span>Chief Executive Officer</span>
-      </div>
-    </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -16,6 +18,9 @@
 export default {
   name: 'ProductCard',
   props: {
+    productId: {
+      type: Number
+    },
     productImage: {
       type: String
     },
@@ -27,5 +32,41 @@ export default {
 </script>
 
 <style scoped>
+.product {
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(16, 110, 234, 0.15);
+}
 
+.product-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-info {
+  padding: 25px 15px;
+}
+
+.product-info h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #222222;
+}
+
+.product-info span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #aaaaaa;
+}
+
+.product-info p {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 26px;
+  color: #777777;
+}
 </style>
