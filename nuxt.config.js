@@ -29,7 +29,7 @@ export default {
         rel: 'stylesheet',
         href: 'https://pagecdn.io/theme/wp-newseqo/1.1.6/assets/css/icofont-min.css',
       },
-      { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/boxicons/css/boxicons.min.css' },
+      { rel: 'stylesheet', href: '/assets/vendor/boxicons/css/boxicons.min.css' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/owl.carousel/assets/owl.carousel.min.css' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/venobox/venobox.css' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/aos/aos.css' },
