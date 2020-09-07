@@ -4,7 +4,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -25,11 +25,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: 'https://alifpp.com/assets/img/alifpp.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/bootstrap/css/bootstrap.min.css' },
-      {
-        rel: 'stylesheet',
-        href: 'https://pagecdn.io/theme/wp-newseqo/1.1.6/assets/css/icofont-min.css',
-      },
-      { rel: 'stylesheet', href: '/assets/vendor/boxicons/css/boxicons.min.css' },
+      { rel: 'stylesheet', href: 'https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css',},
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/owl.carousel/assets/owl.carousel.min.css' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/venobox/venobox.css' },
       { rel: 'stylesheet', href: 'https://alifpp.com/assets/vendor/aos/aos.css' },

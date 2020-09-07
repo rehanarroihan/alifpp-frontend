@@ -5,13 +5,7 @@
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -28,24 +22,23 @@
               Waru Sidoarjo, 61256 <br><br>
               <strong>Call Centre:</strong> +6281 656 2807<br>
               <strong>Telp/Fax:</strong> +6231 855 83611<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Email:</strong> support@alifpp.com<br>
             </p>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Kategori Produk Kami</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Monitoring Lingkungan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Monitoring Lingkungan Kerja</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Deteksi Gas</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Monitoring Air</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <h4>Sosial Media Kami</h4>
+            <p>Cari tahu kami lebih lanjut di sosial media kami</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
