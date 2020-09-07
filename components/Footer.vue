@@ -2,14 +2,6 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          
-        </div>
-      </div>
-    </div>
-
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -75,5 +67,7 @@ export default {
 </script>
 
 <style>
-
+footer {
+  box-shadow: 0px 0 18px 0 rgba(16, 110, 234, 0.1);
+}
 </style>

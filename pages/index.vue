@@ -236,6 +236,20 @@ export default {
         autoplaySpeed: 1950,
         edgeFriction: 0.30,
         outline: false,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
       },
       productDivision: [
         {
@@ -296,13 +310,17 @@ export default {
 </script>
 
 <style lang="scss">
+#hero {
+  margin-top: 60px;
+}
 /* the slides */
 .slick-slide {
-    margin: 0 10px;
+  margin: 0 10px;
+  outline: none;
 }
 /* the parent */
 .slick-list {
-    margin: 0 -10px;
+  margin: 0 -10px;
 }
 
 .product-division {
@@ -311,7 +329,7 @@ export default {
   border-radius: 8px;
   transition: 0.3s all;
   cursor: pointer;
-  position: relative;
+  transition: 0.3s;
 
   &:hover {
     border: 1px solid #106eea;

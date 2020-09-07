@@ -1,11 +1,11 @@
 <template>
   <div>
     <MainLoading v-if="globalLoading" />
-    <section v-else>
+    <div v-else>
       <Header />
       <Nuxt />
       <Footer />
-    </section>
+    </div>
   </div>
 </template>
 
