@@ -7,7 +7,6 @@
         </div>
         <div class="product-info">
           <h4>{{ productName }}</h4>
-          <span>Chief Executive Officer</span>
         </div>
       </div>
     </nuxt-link>
@@ -38,11 +37,15 @@ export default {
   border-radius: 4px;
   background: #fff;
   box-shadow: 0px 2px 15px rgba(16, 110, 234, 0.15);
+  min-height: 300px;
 }
 
 .product-img {
   position: relative;
   overflow: hidden;
+  object-fit: cover;
+  min-height: 220px;
+  max-height: 220px;
 }
 
 .product-info {

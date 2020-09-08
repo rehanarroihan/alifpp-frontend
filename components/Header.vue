@@ -87,7 +87,7 @@ export default {
           link = '/product-category'
           break;
         case 'Brand':
-          link = '/brand'
+          link = '/product-category?cat=51&slug=brand'
           break;
         case 'News & Events':
           link = '/news-event'
