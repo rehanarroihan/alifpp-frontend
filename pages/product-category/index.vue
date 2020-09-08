@@ -22,24 +22,24 @@
           <div class="col-lg-4 col-md-6">
             <h4 class="mb-4">Product Categories</h4>
             <template v-for="(item, index) in twoLevelProductCategory">
-              <button 
+              <nuxt-link 
                 data-toggle="collapse"
                 :data-target="'#child' + item.id"
-                @click="loadProduct(item)"
+                :to="'/product-category?cat=' + item.id + '&slug=' + item.slug"
                 class="btn btn-cat btn-block text-left mb-2"
                 :key="'catParent' +index"
               >
                 {{ item.name }}
-              </button>
+              </nuxt-link>
               <div :id="'child' + item.id" class="collapse" :key="index">
-                <a
+                <nuxt-link
                   v-for="(childItem, childIndex) in item.children"
-                  :key="'catChild' +childIndex"
-                  @click="loadProduct(childItem)"
+                  :key="'catChild' + childIndex"
+                  :to="'/product-category?cat=' + childItem.id + '&slug=' + childItem.slug"
                   class="btn btn-link btn-block text-left"
                 >
                   {{ childItem.name }}
-                </a>
+                </nuxt-link>
               </div>
             </template>
           </div>
@@ -92,11 +92,18 @@ export default {
   name: 'ProductCategory',
   head () {
     return {
-      title: `Product List - ${this.headTitle}`
+      title: `${typeof this.selectedCategory.name != 'undefined' ? this.selectedCategory.name : 'Product List'} - ${this.headTitle}`
     }
   },
   components: {
     ProductCard,
+  },
+  watchQuery: ['cat'],
+  watchQuery(newQuery, oldQuery) {
+    if (newQuery.cat) {
+      const categoryWithThatId = this.allProductCategory.find((t) => t.id == newQuery.cat);
+      this.loadProduct(categoryWithThatId);
+    }
   },
   data() {
     return {
@@ -124,7 +131,15 @@ export default {
         this.isProductLoading = false;
       });
     },
-  }
+  },
+  mounted() {
+    if (this.$route.query.cat) {
+      if (typeof this.selectedCategory.name == 'undefined') {
+        const categoryWithThatId = this.allProductCategory.find((t) => t.id == this.$route.query.cat);
+        this.loadProduct(categoryWithThatId);
+      }
+    }
+  },
 };
 </script>
 

@@ -45,7 +45,7 @@
                 <ul>
                   <li v-for="(children, index) in item.children" :key="index">
                     <nuxt-link
-                      :to="'/product-category/' + children.object_id + '/' + goSlug(children.title)"
+                      :to="'/product-category?cat=' + children.object_id + '&slug=' + goSlug(children.title)"
                     >
                       {{ children.title }}
                     </nuxt-link>
