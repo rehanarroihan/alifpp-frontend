@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-    <nuxt-link :to="'/product/' + productId">
+    <nuxt-link :to="'/product?id=' + productId + '&slug=' + productSlug">
       <div class="product">
         <div class="product-img">
           <img :src="productImage" class="img-fluid" alt="">
@@ -26,6 +26,9 @@ export default {
     productName: {
       type: String
     },
+    productSlug: {
+      type: String
+    }
   }
 };
 </script>

@@ -69,13 +69,19 @@ export default {
       productImage: '',
     };
   },
+  watchQuery: ['id'],
+  watchQuery(newQuery, oldQuery) {
+    if (newQuery.id) {
+      this.getProductDetail();
+    }
+  },
   mounted() {
     this.isPageLoading = true;
     this.getProductDetail();
   },
   methods: {
     async getProductDetail() {
-      this.$axios.$get(`${process.env.API_BASE_URL}wc/v3/products/${this.$route.params.id}`, {
+      this.$axios.$get(`${process.env.API_BASE_URL}wc/v3/products/${this.$route.query.id}`, {
         auth: {
           username: process.env.WP_CONSUMER_KEY,
           password: process.env.WP_CONSUMER_SECRET

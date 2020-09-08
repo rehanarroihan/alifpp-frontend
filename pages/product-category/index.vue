@@ -66,6 +66,7 @@
                   :productId="prdItem.id"
                   :productImage="prdItem.images[0].src"
                   :productName="prdItem.name"
+                  :productSlug="prdItem.slug"
                 />
               </template>
             </div>
