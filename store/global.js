@@ -4,7 +4,8 @@ export const state = () => ({
   navbarMenus: [],
   allProductCategory: [],
   twoLevelProductCategory: [],
-  categoriesWithProducts: []
+  categoriesWithProducts: [],
+  newsAndEventPostList: [],
 });
 
 export const mutations = {
@@ -26,6 +27,9 @@ export const mutations = {
   },
   pushCategoriesWithProducts(state, payload) {
     state.categoriesWithProducts.push(payload);
+  },
+  setNewsAndEventPostList(state, payload) {
+    state.newsAndEventPostList = payload;
   }
 };
 
@@ -104,5 +108,23 @@ export const actions = {
         });
       }
     })
-  }
+  },
+  getNewsAndEventPostList(context, payload) {
+    return new Promise((resolve, reject) => {
+      this.$axios.$get(`${process.env.API_BASE_URL}wp/v2/posts`, {
+        auth: {
+          username: process.env.WP_CONSUMER_KEY,
+          password: process.env.WP_CONSUMER_SECRET
+        },
+        params: {
+          categories: 31
+        },
+      }).then((data) => {
+        context.commit('setNewsAndEventPostList', data);
+        resolve(data);
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  },
 };

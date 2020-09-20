@@ -23,8 +23,19 @@
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex';
 
+export default {
+  head () {
+    return {
+      title: `About Us - ${this.headTitle}`
+    }
+  },
+  computed: {
+    ...mapState({
+      headTitle: (state) => state.global.headTitle,
+    }),
+  },
 }
 </script>
 
