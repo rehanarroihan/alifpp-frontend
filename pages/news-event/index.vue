@@ -28,6 +28,8 @@
               <PostItem
                 v-for="(item, index) in postList"
                 :key="'post' + index"
+                :postId="item.id"
+                :postSlug="item.slug"
                 :postName="item.title.rendered"
                 postWriter="admin"
                 :postDate="item.date"

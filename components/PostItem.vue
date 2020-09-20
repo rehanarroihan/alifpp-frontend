@@ -1,6 +1,11 @@
 <template>
   <div class="post-item">
-    <p class="post-name">{{ postName }}</p>
+    <nuxt-link
+      class="post-name"
+      :to="getPostDetailLink()"
+    >
+      {{ postName }}
+    </nuxt-link>
     <p class="post-info">
       <span>by {{ postWriter }}</span>
       <span>| {{ getPostDate() }}</span>
@@ -16,6 +21,12 @@ import moment from 'moment';
 export default {
   name: 'PostItem',
   props: {
+    postId: {
+      type: String,
+    },
+    postSlug: {
+      type: String,
+    },
     postName: {
       type: String,
     },
@@ -35,6 +46,9 @@ export default {
   methods: {
     getPostDate() {
       return moment(this.postDate).format('dddd, MMMM YYYY');
+    },
+    getPostDetailLink() {
+      return '/post?id=' + this.postId + '&slug=' + this.postSlug;
     }
   }
 }
