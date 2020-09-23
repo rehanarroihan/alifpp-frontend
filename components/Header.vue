@@ -67,7 +67,7 @@
                           <nuxt-link
                             :to="'/product-category?cat=' + childrenChilItem.object_id + '&slug=' + goSlug(childrenChilItem.title)"
                           >
-                            {{ childrenChilItem.title }}
+                            {{ textTruncate(childrenChilItem.title, 28, '...') }}
                           </nuxt-link>
                         </li>
                       </ul>
@@ -141,7 +141,18 @@ export default {
       // replace space with dash/hyphen
       str = str.replace(/\s+/g, '-');	
       return str;
-    }
+    },
+    textTruncate(str, maxLength, ending) {
+      const text = String(str);
+      const strLength = text.length;
+      let textString = '';
+      if (strLength > maxLength) {
+        textString = text.substring(0, maxLength - String(ending).length) + ending;
+      } else {
+        textString = text;
+      }
+      return textString;
+    },
   }
 };
 </script>
