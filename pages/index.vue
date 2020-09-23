@@ -5,10 +5,14 @@
       <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1>Welcome to <span>CV. Alif Putra Perdana</span>
         </h1>
-        <h2>
-          Kami adalah perusahaan Penyedia Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Terbaik Di Indonesia Timur Dan Bisa Bermanfaat Bagi Kehidupan</h2>
+        <h2>{{ vision }}</h2>
         <div class="d-flex">
-          <a href="#about" class="btn-get-started scrollto">Lihat Produk Kami</a>
+          <nuxt-link
+            to="/product-category"
+            class="btn-get-started scrollto"
+          >
+            Lihat Produk Kami
+          </nuxt-link>
         </div>
       </div>
     </section><!-- End Hero -->
@@ -59,27 +63,25 @@
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
               <h3>Visi</h3>
-              <p class="font-italic">
-                Kami adalah perusahaan Penyedia Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Terbaik Di Indonesia Timur Dan Bisa Bermanfaat Bagi Kehidupan
-              </p>
+              <p>{{ vision }}</p>
               <h3>Misi</h3>
               <ul>
                 <li>
                   <i class='bx bxs-chevron-right-circle' ></i>
                   <div>
-                    <p>Menjual Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Berkualitas Dan Memenuhi Standar Yang Ada</p>
+                    <p>Menjual alat monitoring lingkungan, lingkungan kerja, kesehatan kerja dan uji keamanan pangan yang berkualitas dan memenuhi standar yang ada</p>
                   </div>
                 </li>
                 <li>
                   <i class='bx bxs-chevron-right-circle' ></i>
                   <div class="mt-3">
-                    <p>Memberikan Pelayanan Terbaik Kepada Pelanggan</p>
+                    <p>Memberikan pelayanan terbaik kepada pelanggan</p>
                   </div>
                 </li>
                 <li>
                   <i class='bx bxs-chevron-right-circle' ></i>
                   <div>
-                    <p>Memberikan Kesejahteraan Dan Kenyamanan Dalam Bekerja Bagi Seluruh Pemangku Kepentingan</p>
+                    <p>Memberikan kesejahteraan dan kenyamanan dalam bekerja bagi seluruh pemangku kepentingan</p>
                   </div>
                 </li>
               </ul>
@@ -295,7 +297,8 @@ export default {
   },
   computed: {
     ...mapState({
-      headTitle: (state) => state.global.headTitle
+      headTitle: (state) => state.global.headTitle,
+      vision: (state) => state.global.vision,
     }),
   },
   methods: {

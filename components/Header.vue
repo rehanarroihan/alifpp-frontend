@@ -24,13 +24,13 @@
 
         <img
           src="https://alifpp.com/assets/img/alifpplogo.png"
-          class="logo mr-3"
-          style="height: 50px;
-          padding: 0; margin: 0; border-radius: 50%;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);"
+          class="logo mr-3 emblem"
         />
         <h1 class="logo mr-auto">
-          <nuxt-link to="/">Alifpp<span>.</span></nuxt-link>
+          <nuxt-link class="main-title" to="/">
+            <p>CV. Alif Putra Perdana</p>
+            <p>We care...</p>
+          </nuxt-link>
         </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
@@ -38,21 +38,54 @@
         <nav class="nav-menu d-none d-lg-block">
           <ul>
             <template v-for="(item, index) in navbarMenus">
-              <li :key="index" v-if="item.children != null" class="drop-down">
+              <!-- NOTE : menu that have children such as Product and Brand -->
+              <li
+                :key="'menuParent' + index"
+                v-if="item.children != null" 
+                class="drop-down"
+              >
                 <nuxt-link :to="getRedirectLink(item.title)">
                   {{ item.title }}
                 </nuxt-link>
                 <ul>
-                  <li v-for="(children, index) in item.children" :key="index">
-                    <nuxt-link
-                      :to="'/product-category?cat=' + children.object_id + '&slug=' + goSlug(children.title)"
+                  <template v-for="(children, childIdx) in item.children">
+                    <!-- NOTE : menu childred that have children -->
+                    <li
+                      :key="'menuChild' + childIdx"
+                      v-if="children.children != null"
+                      class="drop-down"
                     >
-                      {{ children.title }}
-                    </nuxt-link>
-                  </li>
+                      <nuxt-link
+                        :to="'/product-category?cat=' + children.object_id + '&slug=' + goSlug(children.title)"
+                      >
+                        {{ children.title }}
+                      </nuxt-link>
+                      <ul>
+                        <li
+                          v-for="(childrenChilItem, childrenChilIdx) in children.children" :key="'menuChildChild' + childrenChilIdx"
+                        >
+                          <nuxt-link
+                            :to="'/product-category?cat=' + childrenChilItem.object_id + '&slug=' + goSlug(childrenChilItem.title)"
+                          >
+                            {{ childrenChilItem.title }}
+                          </nuxt-link>
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- NOTE : menu childred that have no children -->
+                    <li :key="'menuChild' + childIdx" v-else>
+                      <nuxt-link
+                        :to="'/product-category?cat=' + children.object_id + '&slug=' + goSlug(children.title)"
+                      >
+                        {{ children.title }}
+                      </nuxt-link>
+                    </li>
+                  </template>
+                  
                 </ul>
               </li>
-              <li :key="index" v-if="item.children == null">
+              <!-- NOTE : menu that have no children -->
+              <li :key="'menuParent' + index" v-if="item.children == null">
                 <nuxt-link :to="getRedirectLink(item.title)">
                   {{ item.title }}
                 </nuxt-link>
@@ -113,6 +146,29 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.emblem {
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
 
+.main-title {
+
+  p:first-child {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    margin-bottom: 2px
+  }
+
+  p:last-child {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+  }
+}
 </style>

@@ -21,7 +21,7 @@
             <h4>CV. Alif Putra Perdana</h4>
             <h5 class="mb-5">Tentang Kami</h5>
             <h6>Visi</h6>
-            <p>Kami adalah perusahaan Penyedia Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Terbaik Di Indonesia Timur Dan Bisa Bermanfaat Bagi Kehidupan</p>
+            <p>{{ vision }}</p>
             <h6>Misi</h6>
             <ul>
               <li>Menjual Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Berkualitas Dan Memenuhi Standar Yang Ada</li>
@@ -48,6 +48,7 @@ export default {
   computed: {
     ...mapState({
       headTitle: (state) => state.global.headTitle,
+      vision: (state) => state.global.vision,
     }),
   },
 }

@@ -6,6 +6,7 @@ export const state = () => ({
   twoLevelProductCategory: [],
   categoriesWithProducts: [],
   newsAndEventPostList: [],
+  vision: "Kami adalah perusahaan penyedia alat monitoring lingkungan, lingkungan Kerja, kesehatan kerja dan uji keamanan pangan yang terbaik dan bisa bermanfaat bagi kehidupan"
 });
 
 export const mutations = {
