@@ -3,9 +3,9 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
       <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h1>Welcome to <span>CV. Alif Putra Perdana</span>
+        <h1 id="welcoming-text">Welcome to <span>CV. Alif Putra Perdana</span>
         </h1>
-        <h2>{{ vision }}</h2>
+        <h2 id="vision-text">{{ vision }}</h2>
         <div class="d-flex">
           <nuxt-link
             to="/product-category"
@@ -35,9 +35,10 @@
               :key="'we'+index"
               data-aos="zoom-in"
               data-aos-delay="100"
+              @click="slickClick(item.link)"
               class="product-division"
             >
-              <img src="https://has-environmental.com/wp-content/uploads/2015/12/asdfasg.jpg" alt="" srcset="">
+              <img :src="item.pict" :alt="item.name + '-image'" srcset="">
               <div class="content">
                 <h4>{{ item.name }}</h4>
                 <p>{{ item.desc }}</p>
@@ -255,37 +256,37 @@ export default {
       },
       productDivision: [
         {
-          name: 'Water Monitoring',
-          desc: 'Water Monitoring',
-          pict: 'ex',
+          name: 'Environmental product',
+          desc: 'Environmental product',
+          pict: 'https://www.demak.com.au/wp-content/uploads/2018/06/person-holds-plant-growing-in-their-hand-896x504.jpg',
+          icon: '',
+          link: '/product-category?cat=32&slug=environment-monitoring',
+        },
+        {
+          name: 'Industrial Hygiene Products',
+          desc: 'Industrial Hygiene Products',
+          pict: 'https://www.bchydro.com/content/dam/BCHydro/customer-portal/photographs/people/public/engineer-in-industrial-facility-full-width-people.jpg',
+          icon: '',
+          link: '/product-category?cat=33&slug=work-environment',
+        },
+        {
+          name: 'Food Test Kit Products',
+          desc: 'Food Test Kit Products',
+          pict: 'https://static8.depositphotos.com/1504385/973/i/950/depositphotos_9736807-stock-photo-researcher-holding-up-a-gmo.jpg',
+          icon: '',
+          link: '/product-category?cat=35&slug=alat-uji-keamanan-pangan',
+        },
+        {
+          name: 'Calibration',
+          desc: 'Calibration',
+          pict: 'https://img.mbtmag.com/files/base/indm/all/image/2019/05/mnet_211487_manufacturing_technology.png?auto=format&fit=crop&h=394&w=700',
           icon: '',
           link: '',
         },
         {
-          name: 'Gas Detection',
-          desc: 'Gas Detection',
-          pict: 'ex',
-          icon: '',
-          link: '',
-        },
-        {
-          name: 'Environmental Product',
-          desc: 'Environmental Product',
-          pict: 'ex',
-          icon: '',
-          link: '',
-        },
-        {
-          name: 'Environmental Product',
-          desc: 'Environmental Product',
-          pict: 'ex',
-          icon: '',
-          link: '',
-        },
-        {
-          name: 'Food Test',
-          desc: 'Food Test',
-          pict: 'ex',
+          name: 'Others',
+          desc: 'Others',
+          pict: 'https://www.wileymetal.com/wp-content/uploads/2018/09/digital-manufacturing-1080x675.jpg',
           icon: '',
           link: '',
         },
@@ -308,6 +309,9 @@ export default {
     prevProductDivision() {
       this.$refs.productDivision.prev();
     },
+    slickClick(link) {
+      this.$router.push({path: link})
+    }
   }
 }
 </script>
@@ -316,6 +320,17 @@ export default {
 #hero {
   margin-top: 60px;
 }
+
+#welcoming-text {
+  font-family: "Tahoma", sans-serif;
+  font-size: 42px!important;
+}
+
+#vision-text {
+  font-family: "Tahoma", sans-serif;
+  font-size: 20px!important;
+}
+
 /* the slides */
 .slick-slide {
   margin: 0 10px;
@@ -363,6 +378,12 @@ export default {
       margin:0;
       padding: 0;
     }
+  }
+}
+
+.section-title {
+  h3 {
+    font-size: 28px!important;
   }
 }
 </style>
