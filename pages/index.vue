@@ -67,23 +67,9 @@
               <p>{{ vision }}</p>
               <h3>Misi</h3>
               <ul>
-                <li>
-                  <i class='bx bxs-chevron-right-circle' ></i>
-                  <div>
-                    <p>Menjual alat monitoring lingkungan, lingkungan kerja, kesehatan kerja dan uji keamanan pangan yang berkualitas dan memenuhi standar yang ada</p>
-                  </div>
-                </li>
-                <li>
-                  <i class='bx bxs-chevron-right-circle' ></i>
-                  <div class="mt-3">
-                    <p>Memberikan pelayanan terbaik kepada pelanggan</p>
-                  </div>
-                </li>
-                <li>
-                  <i class='bx bxs-chevron-right-circle' ></i>
-                  <div>
-                    <p>Memberikan kesejahteraan dan kenyamanan dalam bekerja bagi seluruh pemangku kepentingan</p>
-                  </div>
+                <li v-for="(missionItem, missionIndex) in missionList" :key="'mission' + missionIndex">
+                  <i class='bx bxs-chevron-right-circle' />
+                  <div><p>{{ missionItem }}</p></div>
                 </li>
               </ul>
             </div>
@@ -300,6 +286,7 @@ export default {
     ...mapState({
       headTitle: (state) => state.global.headTitle,
       vision: (state) => state.global.vision,
+      missionList: (state) => state.global.mission,
     }),
   },
   methods: {

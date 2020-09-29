@@ -24,9 +24,9 @@
             <p>{{ vision }}</p>
             <h5>Misi</h5>
             <ul>
-              <li>Menjual Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Berkualitas Dan Memenuhi Standar Yang Ada</li>
-              <li>Memberikan Pelayanan Terbaik Kepada Pelanggan</li>
-              <li>Memberikan Kesejahteraan Dan Kenyamanan Dalam Bekerja Bagi Seluruh Pemangku Kepentingan</li>
+              <li v-for="(missionItem, missionIndex) in missionList" :key="'mission' + missionIndex">
+                {{ missionItem }}
+              </li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-12"></div>
@@ -49,6 +49,7 @@ export default {
     ...mapState({
       headTitle: (state) => state.global.headTitle,
       vision: (state) => state.global.vision,
+      missionList: (state) => state.global.mission,
     }),
   },
 }

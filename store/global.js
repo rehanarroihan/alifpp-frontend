@@ -6,7 +6,12 @@ export const state = () => ({
   twoLevelProductCategory: [],
   categoriesWithProducts: [],
   newsAndEventPostList: [],
-  vision: "Kami adalah perusahaan penyedia alat monitoring lingkungan, lingkungan Kerja, kesehatan kerja dan uji keamanan pangan yang terbaik dan bisa bermanfaat bagi kehidupan"
+  vision: "Kami adalah perusahaan penyedia alat monitoring lingkungan, lingkungan Kerja, kesehatan kerja dan uji keamanan pangan yang terbaik dan bisa bermanfaat bagi kehidupan",
+  mission: [
+    "Menjual alat monitoring lingkungan, lingkungan kerja, kesehatan kerja dan uji keamanan pangan yang berkualitas dan memenuhi standar yang ada",
+    "Memberikan pelayanan terbaik kepada pelanggan",
+    "Memberikan kesejahteraan dan kenyamanan dalam bekerja bagi seluruh pemangku kepentingan"
+  ],
 });
 
 export const mutations = {
