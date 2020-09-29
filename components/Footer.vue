@@ -21,10 +21,16 @@
           <div class="col-lg-4 col-md-6 footer-links">
             <h4>Kategori Produk Kami</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Monitoring Lingkungan</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Monitoring Lingkungan Kerja</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Deteksi Gas</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Alat Monitoring Air</a></li>
+              <li v-for="(item, index) in navbarMenus[1].children" :key="'division'+index">
+                <i class="bx bx-chevron-right"></i>
+                <nuxt-link
+                  :to="'/product-category?cat=' + item.object_id + '&slug=' + goSlug(item.title)"
+                  data-toggle="tooltip"
+                  :title="item.title"
+                >
+                  {{ item.title }}
+                </nuxt-link>
+              </li>
             </ul>
           </div>
 
@@ -61,8 +67,28 @@
 
 <script>
  /* eslint-disable no-alert */
+ import { mapState } from 'vuex';
+
 export default {
   name: 'Footer',
+  computed: {
+    ...mapState({
+      navbarMenus: (state) => state.global.navbarMenus,
+    }),
+  },
+  methods: {
+    goSlug(str) {
+      //replace all special characters | symbols with a space
+      str = str.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+      
+      // trim spaces at start and end of string
+      str = str.replace(/^\s+|\s+$/gm,'');
+      
+      // replace space with dash/hyphen
+      str = str.replace(/\s+/g, '-');	
+      return str;
+    },
+  }
 };
 </script>
 

@@ -20,9 +20,9 @@
           <div class="col-lg-9 col-md-6 col-sm-12">
             <h4>CV. Alif Putra Perdana</h4>
             <h5 class="mb-5">Tentang Kami</h5>
-            <h6>Visi</h6>
+            <h5>Visi</h5>
             <p>{{ vision }}</p>
-            <h6>Misi</h6>
+            <h5>Misi</h5>
             <ul>
               <li>Menjual Alat Monitoring Lingkungan, Lingkungan Kerja, Kesehatan Kerja Dan Uji Keamanan Pangan Yang Berkualitas Dan Memenuhi Standar Yang Ada</li>
               <li>Memberikan Pelayanan Terbaik Kepada Pelanggan</li>

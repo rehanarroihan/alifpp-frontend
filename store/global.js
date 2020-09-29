@@ -64,7 +64,7 @@ export const actions = {
         data.map((cat) => {
           // NOTE : Gathering parents (cat with parent === 0)
           if (cat.parent === 0) {
-            if (cat.name !== 'Lain-lain' && cat.name !== 'Uncategorized')
+            if (cat.name !== 'Uncategorized')
               catParents.push(cat);
           }
         });

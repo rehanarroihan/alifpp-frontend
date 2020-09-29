@@ -66,8 +66,10 @@
                         >
                           <nuxt-link
                             :to="'/product-category?cat=' + childrenChilItem.object_id + '&slug=' + goSlug(childrenChilItem.title)"
+                            data-toggle="tooltip"
+                            :title="childrenChilItem.title"
                           >
-                            {{ textTruncate(childrenChilItem.title, 28, '...') }}
+                            {{ textTruncate(childrenChilItem.title, 34, '...') }}
                           </nuxt-link>
                         </li>
                       </ul>
@@ -180,6 +182,14 @@ export default {
     font-size: 16px;
     padding: 0;
     margin: 0;
+  }
+}
+
+@media (max-width: 1366px) {
+  .nav-menu .drop-down .drop-down ul {
+    /* left: -90%; */
+    left: -100%!important;
+    right: 100%!important;
   }
 }
 </style>

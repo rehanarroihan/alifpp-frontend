@@ -60,7 +60,7 @@
 
           <div class="row">
             <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="100">
-              <img src="assets/img/about.jpg" class="img-fluid" alt="">
+              <img src="https://e3.365dm.com/19/10/2048x1152/skynews-handshake-business_4801338.jpg" class="img-fluid vision-mission-image" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
               <h3>Visi</h3>
@@ -288,7 +288,7 @@ export default {
           desc: 'Others',
           pict: 'https://www.wileymetal.com/wp-content/uploads/2018/09/digital-manufacturing-1080x675.jpg',
           icon: '',
-          link: '',
+          link: '/product-category?cat=36&slug=lain-lain',
         },
       ]
     }
@@ -385,5 +385,11 @@ export default {
   h3 {
     font-size: 28px!important;
   }
+}
+
+.vision-mission-image {
+  height: 468px;
+  width: 992px;
+  object-fit: cover;
 }
 </style>
