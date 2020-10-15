@@ -263,13 +263,6 @@ export default {
           link: '/product-category?cat=35&slug=alat-uji-keamanan-pangan',
         },
         {
-          name: 'Calibration',
-          desc: 'Calibration',
-          pict: 'https://img.mbtmag.com/files/base/indm/all/image/2019/05/mnet_211487_manufacturing_technology.png?auto=format&fit=crop&h=394&w=700',
-          icon: '',
-          link: '',
-        },
-        {
           name: 'Others',
           desc: 'Others',
           pict: 'https://www.wileymetal.com/wp-content/uploads/2018/09/digital-manufacturing-1080x675.jpg',
