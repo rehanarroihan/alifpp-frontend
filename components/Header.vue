@@ -4,7 +4,7 @@
       <div class="container d-flex">
         <div class="contact-info mr-auto">
           <i class="icofont-envelope"></i>
-          <a href="mailto:support@alifpp.com">support@alifpp.com</a>
+          <a href="mailto:info@alifpp.com">info@alifpp.com</a>
           <i class="icofont-phone"></i> +62 816562807
           <i class="icofont-fax"></i> +62 3185583611
         </div>

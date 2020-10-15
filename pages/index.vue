@@ -172,7 +172,7 @@
               <div class="info-box  mb-4">
                 <i class="bx bx-envelope"></i>
                 <h3>Email Kami</h3>
-                <p>support@alifpp.com</p>
+                <p>info@alifpp.com</p>
               </div>
             </div>
 

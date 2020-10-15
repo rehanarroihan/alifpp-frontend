@@ -14,7 +14,7 @@
               Waru Sidoarjo, 61256 <br><br>
               <strong>Call Centre:</strong> +6281 656 2807<br>
               <strong>Telp/Fax:</strong> +6231 855 83611<br>
-              <strong>Email:</strong> support@alifpp.com<br>
+              <strong>Email:</strong> info@alifpp.com<br>
             </p>
           </div>
 
