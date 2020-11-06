@@ -61,17 +61,49 @@
                         {{ children.title }}
                       </nuxt-link>
                       <ul>
-                        <li
-                          v-for="(childrenChilItem, childrenChilIdx) in children.children" :key="'menuChildChild' + childrenChilIdx"
-                        >
-                          <nuxt-link
-                            :to="'/product-category?cat=' + childrenChilItem.object_id + '&slug=' + goSlug(childrenChilItem.title)"
-                            data-toggle="tooltip"
-                            :title="childrenChilItem.title"
+                        <template v-for="(childrenChilItem, childrenChilIdx) in children.children">
+                          <!-- NOTE : have childred -->
+                          <li
+                            :key="'menuChildChild' + childrenChilIdx"
+                            v-if="childrenChilItem.children != null" 
+                            class="drop-down"
                           >
-                            {{ textTruncate(childrenChilItem.title, 34, '...') }}
-                          </nuxt-link>
-                        </li>
+                            <nuxt-link
+                              :to="'/product-category?cat=' + childrenChilItem.object_id + '&slug=' + goSlug(childrenChilItem.title)"
+                              data-toggle="tooltip"
+                              :title="childrenChilItem.title"
+                            >
+                              {{ textTruncate(childrenChilItem.title, 34, '...') }}
+                            </nuxt-link>
+                            <ul>
+                              <li
+                                v-for="(childrenChildItem, childrenChildIdx) in childrenChilItem.children"
+                                :key="'menuChildChildes' + childrenChildIdx"
+                              >
+                                <nuxt-link
+                                  :to="'/product-category?cat=' + childrenChildItem.object_id + '&slug=' + goSlug(childrenChildItem.title)"
+                                  data-toggle="tooltip"
+                                  :title="childrenChildItem.title"
+                                >
+                                  {{ textTruncate(childrenChildItem.title, 34, '...') }}
+                                </nuxt-link>
+                              </li>
+                            </ul>
+                          </li>
+                          <!-- NOTE : don't have childred -->
+                          <li
+                            v-else
+                            :key="'menuChildChild' + childrenChilIdx"
+                          >
+                            <nuxt-link
+                              :to="'/product-category?cat=' + childrenChilItem.object_id + '&slug=' + goSlug(childrenChilItem.title)"
+                              data-toggle="tooltip"
+                              :title="childrenChilItem.title"
+                            >
+                              {{ textTruncate(childrenChilItem.title, 34, '...') }}
+                            </nuxt-link>
+                          </li>
+                        </template>
                       </ul>
                     </li>
                     <!-- NOTE : menu childred that have no children -->
